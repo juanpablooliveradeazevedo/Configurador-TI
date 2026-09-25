@@ -1,2 +1,13 @@
-# Configurador-TI
-Aplicação desktop para diagnóstico, inventário, manutenção e administração de computadores Windows.
+Configurador TI
+│
+├── Visão geral
+├── Problema que o projeto resolve
+├── Principais funcionalidades
+├── Tecnologias
+├── Arquitetura
+├── Screenshots
+├── Desenvolvimento e versionamento
+├── Testes e QA
+├── Uso de IA no desenvolvimento
+├── Roadmap
+└── Status atual
