@@ -1,0 +1,19 @@
+Configurador TI
+Para iniciar:
+1. Extraia o ZIP.
+2. Abra ConfiguradorTI.exe.
+Pastas criadas automaticamente quando necessárias: dados, logs, relatorios e coletas.
+
+Não edite dados persistentes enquanto o Configurador TI estiver aberto.
+Em caso de erro, consulte logs e Sobre / Status do Configurador TI para o caminho efetivo.
+Na página Investigação, sessões locais permitem revisar eventos e mudanças em
+ordem cronológica. Relação temporal ou operacional não comprova causalidade.
+A barra lateral organiza as funções por domínio; arquivar só oculta a sessão.
+Em Observabilidade > Monitoramento, CPU, memória e espaço livre são observados
+somente com o Configurador TI aberto; estados e relações não provam diagnóstico ou causa.
+Alertas persistem; reconhecer não resolve. Tendências não são previsão e correlação não prova causa.
+Em Segurança > Postura do Endpoint, a consulta sob demanda é somente leitura.
+Indisponível não significa desabilitado; postura não é garantia de segurança.
+Em Operações & Manutenção > Assistente Técnico, Safe Playbooks orientam evidências locais.
+O técnico decide; não há comandos livres nem remediação automática.
+O ajuste de intervalo é a única alteração local: em Monitoramento, use "Ajustar intervalo via Assistente Técnico" mesmo sem alertas; exige dry-run, confirmação, validação e rollback.

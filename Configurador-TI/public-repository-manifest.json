@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "public_candidate": "PUBLIC_REPOSITORY_R1",
+  "generated_date": "2026-09-26",
+  "source_zip": "Configurador_TI_v5_0_REBRAND_GLOBAL_R1_2026-09-25",
+  "source_sha256": "3ff57f1a3ef404f35dd04b78d7cbc476137a36128fbe70a42a560024f9a0de9e",
+  "source_entries": 421,
+  "source_rebrand_regression": {
+    "suites": 34,
+    "tests": 844,
+    "passed": 841,
+    "skipped": 3,
+    "failed_suites": 0,
+    "compileall": "PASS",
+    "scanner_zero_branding": "PASS",
+    "native_windows": "PENDING"
+  },
+  "public_policy": {
+    "historical_prompts": "excluded",
+    "historical_logs": "excluded",
+    "evidence_bundles": "excluded",
+    "nested_deployment_zips": "excluded",
+    "generated_runtime_state": "excluded",
+    "screenshots_historical": "excluded"
+  },
+  "intentional_changes": [
+    "README/documentation curated for public portfolio",
+    "stale root LEIA-ME replaced",
+    "duplicate Configurador_TI_v5_0_FINAL.py omitted because byte-identical to core_logic.py",
+    "structural test import updated to reflect duplicate removal",
+    ".gitignore and dependency files added"
+  ]
+}

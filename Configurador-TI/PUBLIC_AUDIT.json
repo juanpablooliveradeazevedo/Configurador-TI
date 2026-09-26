@@ -1,0 +1,67 @@
+{
+  "candidate": "PUBLIC_REPOSITORY_R1",
+  "generated_date": "2026-09-26",
+  "source_sha256": "3ff57f1a3ef404f35dd04b78d7cbc476137a36128fbe70a42a560024f9a0de9e",
+  "branding_scan": {
+    "path_occurrences": 0,
+    "text_occurrences": 0,
+    "status": "PASS"
+  },
+  "secret_scan": {
+    "private_key_blocks": 0,
+    "github_tokens": 0,
+    "aws_access_keys": 0,
+    "status": "PASS",
+    "synthetic_fixture_emails": [
+      {
+        "path": "desenvolvimento/testes/test_fleet_2b.py",
+        "value": "password@example.com"
+      },
+      {
+        "path": "desenvolvimento/testes/test_licensing_2a.py",
+        "value": "secret@example.test"
+      }
+    ],
+    "note": "Os e-mails listados são fixtures sintéticas de testes, não contatos/credenciais reais."
+  },
+  "static_validation": {
+    "python_files_parsed": 105,
+    "parse_errors": 0,
+    "status": "PASS"
+  },
+  "portable_tests_executed_in_this_session": {
+    "test_fleet_2b.py": {
+      "tests": 57,
+      "result": "PASS"
+    },
+    "test_licensing_2a.py": {
+      "tests": 49,
+      "result": "PASS"
+    },
+    "test_service_*.py": {
+      "tests": 19,
+      "result": "PASS"
+    },
+    "test_network_intelligence.py": {
+      "tests": 31,
+      "result": "PASS",
+      "skipped": 1
+    },
+    "test_windows_hardening_1f.py": {
+      "tests": 13,
+      "result": "PASS"
+    },
+    "test_atomic_artifact_acl_1f_r1.py": {
+      "tests": 13,
+      "result": "PASS"
+    }
+  },
+  "source_candidate_regression": {
+    "tests": 844,
+    "passed": 841,
+    "skipped": 3,
+    "failed_suites": 0,
+    "compileall": "PASS",
+    "native_windows": "PENDING"
+  }
+}

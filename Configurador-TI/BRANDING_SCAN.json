@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "path_occurrences": 0,
+  "text_occurrences": 0,
+  "binary_occurrences": 0,
+  "nested_archives": 0,
+  "files_scanned": 125,
+  "visual_assets": [],
+  "findings": [],
+  "errors": []
+}

@@ -1,0 +1,25 @@
+CONFIGURADOR TI — REPOSITÓRIO PÚBLICO DE PORTFÓLIO
+
+Este repositório contém uma versão pública e organizada do código-fonte da candidata
+REBRAND GLOBAL R1, destinada a portfólio técnico, estudo e QA.
+
+Execução em modo fonte:
+1. Windows 10/11 e Python 3.12 recomendado.
+2. Instale: python -m pip install -r requirements.txt
+3. Execute: python main_gui.py
+   ou INICIAR_CONFIGURADOR_TI.cmd.
+
+Build:
+- Instale requirements-dev.txt.
+- Em Windows real, execute CRIAR_EXE_E_PENDRIVE_TI_v5_0.bat.
+
+Validação da candidata-base:
+- 34 suítes;
+- 844 testes;
+- 841 PASS;
+- 3 SKIP;
+- 0 FAIL;
+- compileall PASS;
+- gates Windows nativos ainda pendentes.
+
+Consulte README.md e docs/ para arquitetura, testes, segurança e roadmap.
