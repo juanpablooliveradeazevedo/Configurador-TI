@@ -1,204 +1,185 @@
 # Configurador TI 🖥️
 
-Projeto pessoal em desenvolvimento voltado para **diagnóstico, inventário, manutenção, monitoramento e apoio à administração de computadores Windows**.
+Aplicação desktop em desenvolvimento para **diagnóstico, inventário, manutenção, monitoramento, automação e apoio à administração de computadores Windows**.
 
-> 🚧 Projeto em desenvolvimento ativo.
->
-> Este repositório funciona atualmente como **portfólio e documentação pública do projeto**.
+> **Status:** desenvolvimento ativo / candidata de QA.  
+> **Base pública:** derivada da candidata **REBRAND GLOBAL R1 (2026-09-25)**.  
+> **Regressão da candidata-base:** 844 testes — 841 aprovados, 3 ignorados por dependência de ambiente/plataforma e 0 falhas.  
+> **Validações nativas Windows:** ainda pendentes antes de qualquer promoção para produção.
 
-## 📌 Visão geral
+## Visão geral
 
-O Configurador TI surgiu a partir da observação de rotinas recorrentes de suporte técnico e da ideia de reunir, em uma única interface, informações e ferramentas que normalmente ficam distribuídas entre diferentes utilitários, comandos e telas do Windows.
+O Configurador TI nasceu da observação de rotinas recorrentes de suporte técnico e da ideia de reunir, em uma única interface, informações e ferramentas que normalmente ficam distribuídas entre diferentes utilitários, comandos e telas do Windows.
 
-O projeto continua sendo desenvolvido de forma independente como iniciativa pessoal de estudo, automação e evolução prática em desenvolvimento de software.
+O projeto é desenvolvido como iniciativa pessoal de estudo e evolução prática em desenvolvimento de software, automação, Windows, redes, segurança e qualidade de software.
 
-Atualmente, a aplicação reúne recursos relacionados a:
+Entre os recursos atualmente implementados estão:
 
-- diagnóstico do computador;
-- inventário de hardware e sistema;
-- rede e DNS;
-- armazenamento e SMART;
-- processos e serviços;
-- monitoramento;
-- análise defensiva;
-- relatórios e auditoria;
-- automação de tarefas administrativas;
-- componentes experimentais de gerenciamento de endpoints.
+- diagnóstico do computador e inventário de hardware/sistema;
+- rede, DNS e informações de conectividade;
+- discos, S.M.A.R.T. e armazenamento;
+- sensores e monitoramento local;
+- análise defensiva e postura do endpoint;
+- logs, auditoria, Timeline e investigação;
+- Assistente Técnico com playbooks guiados e ações controladas;
+- motor transacional com confirmação, validação e rollback;
+- Agent headless, Central Web e backend/API de referência para QA;
+- empacotamento com PyInstaller e validações de distribuição.
 
-## 🎯 Objetivos
+## Arquitetura
 
-- Centralizar informações técnicas relevantes para suporte e administração de computadores Windows.
-- Reduzir tarefas manuais de diagnóstico e coleta de informações.
-- Criar uma interface mais organizada para rotinas técnicas.
-- Utilizar o projeto como ambiente prático de aprendizado em desenvolvimento, automação, redes, Windows, segurança e qualidade de software.
+A candidata atual possui quatro componentes principais:
 
-## 🛠️ Tecnologias
+```text
+┌────────────────────────────┐
+│ Technician Desktop (PyQt6) │
+└─────────────┬──────────────┘
+              │
+              │ recursos locais / licenciamento
+              ▼
+┌────────────────────────────┐
+│ Backend / Control Plane    │
+└─────────────┬──────────────┘
+              │ API local de QA
+       ┌──────┴──────┐
+       ▼             ▼
+┌──────────────┐  ┌──────────────┐
+│ Central Web  │  │ Agent        │
+│ interface QA │  │ headless     │
+└──────────────┘  └──────────────┘
+```
+
+Mais detalhes em [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+
+## Tecnologias
 
 - Python
 - PyQt6
 - PowerShell
 - WMI / CIM
 - SQLite
+- `cryptography`
 - PyInstaller
 - Git
-- Ferramentas e APIs nativas do Windows
+- APIs e ferramentas nativas do Windows
 
-## 📈 Status
-
-🚧 **Em desenvolvimento ativo**
-
-## ⚙️ Principais funcionalidades
-
-O Configurador TI reúne diferentes recursos técnicos em uma única aplicação para Windows.
-
-### 🖥️ Diagnóstico e inventário
-
-- Coleta de informações do sistema operacional e hardware
-- Informações de CPU, memória e armazenamento
-- Organização de dados técnicos do computador
-- Centralização de informações normalmente distribuídas em diferentes ferramentas do Windows
-
-### 🌐 Rede e conectividade
-
-- Informações de adaptadores de rede
-- Consulta e diagnóstico de DNS
-- Informações de IP e conectividade
-- Recursos de análise de rede
-
-### 💾 Armazenamento
-
-- Informações sobre discos e unidades
-- Consulta de dados S.M.A.R.T. quando suportados
-- Apoio ao diagnóstico de armazenamento
-
-### ⚙️ Processos e serviços
-
-- Visualização de processos
-- Consulta de serviços do Windows
-- Informações de estado e funcionamento
-- Recursos administrativos controlados
-
-### 📊 Monitoramento
-
-- Monitoramento de recursos do computador
-- Coleta de informações operacionais
-- Histórico e acompanhamento de estados
-- Apoio à identificação de alterações no sistema
-
-### 🛡️ Segurança e análise defensiva
-
-- Consulta de informações relacionadas à segurança do endpoint
-- Informações de BitLocker, TPM e Secure Boot quando disponíveis
-- Informações de antivírus, Microsoft Defender e Firewall
-- Recursos de baseline e comparação de estados
-- Timeline para apoio à análise técnica
-
-### 🖧 Gerenciamento de endpoints
-
-O projeto também possui componentes em evolução para estudo e implementação de:
-
-- Agent para Windows
-- Serviço Windows
-- Central Web
-- Comunicação entre endpoints
-- Gerenciamento de dispositivos
-- Identidade e licenciamento
-
-Esses componentes permanecem em desenvolvimento e são utilizados principalmente para estudo, testes e evolução da arquitetura.
-
-## 🏗️ Arquitetura
-
-O projeto evoluiu de uma aplicação desktop local para uma arquitetura mais modular.
+## Estrutura do repositório
 
 ```text
-Configurador TI
-│
-├── Aplicação Desktop
-│   ├── Interface gráfica
-│   ├── Diagnóstico
-│   ├── Inventário
-│   ├── Rede
-│   ├── Armazenamento
-│   └── Ferramentas administrativas
-│
-├── Agent
-│   ├── Coleta de informações
-│   └── Comunicação com componentes de gerenciamento
-│
-├── Serviço Windows
-│
-├── Central Web
-│
-└── Control Plane / gerenciamento de endpoints
+Configurador-TI/
+├── main_gui.py / main_gui.pyw    # interface e launcher gráfico
+├── core_logic.py                 # lógica local principal
+├── agent/                        # Agent headless / serviço Windows
+├── central_web/                  # Central Web de QA
+├── control_plane/                # backend e autoridade local de QA
+├── fleet_protocol/               # contratos e transporte
+├── licensing/                    # identidade/licenciamento
+├── desenvolvimento/              # build, scanner, harness e testes
+│   └── testes/
+├── distribuicao/                 # instruções do pacote executável
+├── docs/                         # documentação pública curada
+└── assets/screenshots/           # capturas atuais da interface
 ```
 
-A arquitetura continua sendo revisada conforme novas funcionalidades são desenvolvidas e testadas.
+O repositório público **não inclui** histórico de prompts, logs de validação, evidências intermediárias, ZIPs internos, patches ou bundles antigos da árvore mestre de desenvolvimento.
 
-## 🧪 Desenvolvimento e qualidade
+## Executar em modo fonte
 
-O projeto é desenvolvido de forma incremental, com foco em:
+### Requisitos
 
-- implementação por etapas;
-- testes automatizados;
-- testes funcionais;
-- revisão de regressões;
-- validação de interface;
-- documentação técnica;
-- controle de versões;
-- análise de falhas;
-- possibilidade de rollback entre versões.
+- Windows 10/11
+- Python 3.12 recomendado
+- PowerShell disponível no sistema
 
-A versão atual possui uma suíte automatizada com centenas de testes utilizados durante o processo de evolução do projeto.
+Crie um ambiente virtual e instale as dependências:
 
-Validações específicas que dependem diretamente do ambiente Windows também são realizadas separadamente dos testes automatizados.
+```powershell
+py -3.12 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+```
 
-## 🤖 Uso de IA no desenvolvimento
+Para iniciar pela interface gráfica:
 
-Ferramentas de IA generativa são utilizadas como apoio durante o desenvolvimento para atividades como:
+```powershell
+python main_gui.py
+```
 
-- planejamento de implementações;
-- prototipação;
-- análise e revisão de código;
-- depuração;
-- geração e revisão de testes;
-- documentação;
-- análise de regressões.
+ou use:
 
-A definição dos objetivos do projeto, requisitos, decisões funcionais, validação dos resultados e direcionamento da evolução são conduzidos por mim.
+```text
+INICIAR_CONFIGURADOR_TI.cmd
+```
 
-O uso de IA faz parte do processo de desenvolvimento e aprendizado do projeto, funcionando como ferramenta de apoio e não como substituição da validação técnica.
+> Algumas funções dependem de Windows real e algumas ações administrativas solicitam elevação apenas quando necessário.
 
-## 🗺️ Roadmap
+## Testes e QA
 
-Alguns dos próximos objetivos do projeto incluem:
+A candidata-base REBRAND GLOBAL R1 registrou:
 
-- continuar aprimorando a interface e experiência de uso;
-- aumentar a cobertura de diagnóstico;
-- evoluir os componentes de gerenciamento de endpoints;
-- ampliar testes em ambientes Windows reais;
-- melhorar observabilidade e auditoria;
-- aprimorar documentação;
-- preparar uma distribuição independente mais simples;
-- avaliar a publicação futura de partes adicionais do código-fonte.
+- **34 suítes**
+- **844 testes**
+- **841 PASS**
+- **3 SKIP**
+- **0 FAIL**
+- `compileall`: PASS
+- scanner de branding: PASS
+- harness portátil/Linux: `PASS_WITH_NATIVE_PENDING`
 
-## 📷 Screenshots
+Para executar a suíte incluída no repositório:
 
-Capturas da aplicação serão adicionadas conforme a nova identidade visual independente do projeto for consolidada.
+```powershell
+python -m unittest discover -s desenvolvimento/testes -p "test_*.py"
+```
 
-## 📦 Disponibilidade
+A suíte possui testes que dependem de PyQt6 e alguns gates condicionais a Windows. Consulte [`docs/TESTING.md`](docs/TESTING.md).
 
-🚧 **Projeto em desenvolvimento ativo**
+## Build
 
-Este repositório funciona atualmente como apresentação pública e documentação do projeto.
+O pipeline oficial usa PyInstaller. Para instalar dependências de desenvolvimento:
 
-O conteúdo disponibilizado publicamente poderá ser ampliado conforme novas versões forem revisadas e preparadas para distribuição.
+```powershell
+python -m pip install -r requirements-dev.txt
+```
 
-## 👨‍💻 Autor
+No Windows, o build portátil pode ser iniciado por:
+
+```text
+CRIAR_EXE_E_PENDRIVE_TI_v5_0.bat
+```
+
+O pipeline preserva saídas anteriores, gera manifesto/checksums e rejeita uma distribuição que viole os gates de higiene definidos pelo projeto.
+
+## Segurança e limites
+
+Este projeto **não é um RMM de produção** e a Central/Backend atuais são referências locais de QA. O desenho atual evita shell remoto livre, upload/execução arbitrária e remediação automática sem confirmação.
+
+O repositório não contém chaves privadas, credenciais reais ou estado persistente de usuário. Consulte [`docs/SECURITY.md`](docs/SECURITY.md).
+
+## Screenshots
+
+As capturas antigas foram removidas durante o rebranding para evitar apresentar telas históricas como se fossem da versão atual. A pasta [`assets/screenshots/`](assets/screenshots/) está reservada para novas capturas da candidata rebatizada.
+
+## Roadmap
+
+Os próximos gates incluem:
+
+- validação completa em Windows real;
+- build e smoke de `ConfiguradorTI.exe` e `ConfiguradorTIAgent.exe`;
+- validação de serviço Windows / LocalService / ACL / DPAPI;
+- validação da Central em navegador real;
+- captura de screenshots atuais;
+- consolidação da documentação de release.
+
+Veja [`docs/ROADMAP.md`](docs/ROADMAP.md).
+
+## Autor
 
 **Juan Pablo Oliveira de Azevedo**
 
-Estudante de Análise e Desenvolvimento de Sistemas.
+- LinkedIn: https://www.linkedin.com/in/juanpabloazevedo
+- GitHub: https://github.com/juanpablooliveradeazevedo
 
-[LinkedIn](https://www.linkedin.com/in/juan-pablo-0764ba247/) • [GitHub](https://github.com/juanpablooliveradeazevedo)
+---
 
-O projeto está sendo evoluído de forma incremental, com testes funcionais, revisões de interface, documentação e validação de diferentes módulos.
+Projeto pessoal em desenvolvimento. O conteúdo deste repositório representa uma versão de portfólio e QA, não uma declaração de prontidão para produção.
