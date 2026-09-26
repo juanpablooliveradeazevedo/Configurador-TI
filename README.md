@@ -227,7 +227,6 @@ Os principais passos antes de uma versão considerada estável incluem:
 - validação do serviço Windows;
 - validações de LocalService, ACL e DPAPI;
 - validação da Central Web em navegador real;
-- inclusão de screenshots atualizados;
 - consolidação da documentação de release.
 
 Mais detalhes estão disponíveis em [`docs/ROADMAP.md`](docs/ROADMAP.md).
