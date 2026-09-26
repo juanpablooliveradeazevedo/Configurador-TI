@@ -180,11 +180,43 @@ Mais informações estão disponíveis em [`docs/SECURITY.md`](docs/SECURITY.md)
 
 ## 📷 Screenshots
 
-As capturas anteriores foram removidas para que o repositório apresente somente a interface correspondente à versão atual do projeto.
+Abaixo estão algumas telas da interface atual do Configurador TI.
 
-As novas capturas serão adicionadas em:
+### Visão Geral
 
-[`assets/screenshots/`](assets/screenshots/)
+![Visão Geral do Configurador TI](assets/screenshots/01-visao-geral.png)
+
+Resumo da estação, informações principais do sistema e acesso rápido às operações mais utilizadas.
+
+### Manutenção & Diagnóstico
+
+![Manutenção e Diagnóstico](assets/screenshots/02-manutencao-diagnostico.png)
+
+Ferramentas de saúde do sistema, limpeza segura, armazenamento, sensores, benchmark e rotinas de manutenção.
+
+### Análise defensiva
+
+![Análise defensiva e triagem](assets/screenshots/03-analise-defensiva.png)
+
+Área de triagem local para análise de processos, executáveis, assinaturas, persistências e comparação com baseline.
+
+### Assistente Técnico
+
+![Assistente Técnico](assets/screenshots/04-assistente-tecnico.png)
+
+Assistente baseado em evidências, com recomendações explicáveis e playbooks guiados sob decisão do técnico.
+
+### Rede & DNS
+
+![Rede e DNS](assets/screenshots/05-rede-dns.png)
+
+Configuração e diagnóstico de adaptadores, DNS, DHCP, IP fixo e perfis de rede.
+
+### Implantação Corporativa
+
+![Implantação Corporativa](assets/screenshots/06-implantacao-corporativa.png)
+
+Atalhos para tarefas de preparação e implantação, incluindo domínio, usuários, aplicativos, unidades e impressoras de rede.
 
 ## 🗺️ Roadmap
 
