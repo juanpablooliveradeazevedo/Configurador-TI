@@ -1,4 +1,4 @@
-# Configurador TI — Projeto em Python para Windows 🖥️
+# Configurador TI 🖥️
 
 Projeto pessoal em desenvolvimento voltado para **diagnóstico, inventário, manutenção, monitoramento e apoio à administração de computadores Windows**.
 
