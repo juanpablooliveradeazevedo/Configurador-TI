@@ -2,33 +2,33 @@
 
 Aplicação desktop em desenvolvimento para **diagnóstico, inventário, manutenção, monitoramento, automação e apoio à administração de computadores Windows**.
 
-> **Status:** desenvolvimento ativo / candidata de QA.  
-> **Base pública:** derivada da candidata **REBRAND GLOBAL R1 (2026-09-25)**.  
-> **Regressão da candidata-base:** 844 testes — 841 aprovados, 3 ignorados por dependência de ambiente/plataforma e 0 falhas.  
-> **Validações nativas Windows:** ainda pendentes antes de qualquer promoção para produção.
+> **Status:** desenvolvimento ativo / em validação de QA.  
+> **Regressão automatizada atual:** 844 testes — 841 aprovados, 3 ignorados por dependência de ambiente/plataforma e 0 falhas.  
+> **Validações nativas Windows:** ainda em andamento antes de uma versão considerada estável.
 
-## Visão geral
+## 📌 Visão geral
 
-O Configurador TI nasceu da observação de rotinas recorrentes de suporte técnico e da ideia de reunir, em uma única interface, informações e ferramentas que normalmente ficam distribuídas entre diferentes utilitários, comandos e telas do Windows.
+O **Configurador TI** nasceu da observação de rotinas recorrentes de suporte técnico e da ideia de reunir, em uma única interface, informações e ferramentas que normalmente ficam distribuídas entre diferentes utilitários, comandos e telas do Windows.
 
-O projeto é desenvolvido como iniciativa pessoal de estudo e evolução prática em desenvolvimento de software, automação, Windows, redes, segurança e qualidade de software.
+O projeto é desenvolvido como iniciativa pessoal de estudo e evolução prática em desenvolvimento de software, automação, Windows, redes, segurança da informação e qualidade de software.
 
 Entre os recursos atualmente implementados estão:
 
-- diagnóstico do computador e inventário de hardware/sistema;
-- rede, DNS e informações de conectividade;
+- diagnóstico do computador e inventário de hardware e sistema;
+- informações de rede, DNS e conectividade;
 - discos, S.M.A.R.T. e armazenamento;
 - sensores e monitoramento local;
 - análise defensiva e postura do endpoint;
 - logs, auditoria, Timeline e investigação;
 - Assistente Técnico com playbooks guiados e ações controladas;
 - motor transacional com confirmação, validação e rollback;
-- Agent headless, Central Web e backend/API de referência para QA;
+- Agent headless;
+- Central Web e backend/API de referência para QA;
 - empacotamento com PyInstaller e validações de distribuição.
 
-## Arquitetura
+## 🏗️ Arquitetura
 
-A candidata atual possui quatro componentes principais:
+A arquitetura atual possui quatro componentes principais:
 
 ```text
 ┌────────────────────────────┐
@@ -49,9 +49,11 @@ A candidata atual possui quatro componentes principais:
 └──────────────┘  └──────────────┘
 ```
 
-Mais detalhes em [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+Mais detalhes estão disponíveis em [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 
-## Tecnologias
+## 🛠️ Tecnologias
+
+O projeto utiliza principalmente:
 
 - Python
 - PyQt6
@@ -63,7 +65,7 @@ Mais detalhes em [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 - Git
 - APIs e ferramentas nativas do Windows
 
-## Estrutura do repositório
+## 📂 Estrutura do repositório
 
 ```text
 Configurador-TI/
@@ -73,49 +75,54 @@ Configurador-TI/
 ├── central_web/                  # Central Web de QA
 ├── control_plane/                # backend e autoridade local de QA
 ├── fleet_protocol/               # contratos e transporte
-├── licensing/                    # identidade/licenciamento
+├── licensing/                    # identidade e licenciamento
 ├── desenvolvimento/              # build, scanner, harness e testes
 │   └── testes/
 ├── distribuicao/                 # instruções do pacote executável
-├── docs/                         # documentação pública curada
+├── docs/                         # documentação pública
 └── assets/screenshots/           # capturas atuais da interface
 ```
 
-O repositório público **não inclui** histórico de prompts, logs de validação, evidências intermediárias, ZIPs internos, patches ou bundles antigos da árvore mestre de desenvolvimento.
+O repositório público **não inclui** histórico interno de prompts, logs de validação, evidências intermediárias de QA, ZIPs internos, patches ou pacotes antigos da árvore mestre de desenvolvimento.
 
-## Executar em modo fonte
+## ▶️ Executar em modo fonte
 
 ### Requisitos
 
-- Windows 10/11
+- Windows 10 ou Windows 11
 - Python 3.12 recomendado
 - PowerShell disponível no sistema
 
-Crie um ambiente virtual e instale as dependências:
+Crie um ambiente virtual:
 
 ```powershell
 py -3.12 -m venv .venv
 .\.venv\Scripts\Activate.ps1
+```
+
+Instale as dependências:
+
+```powershell
 python -m pip install -r requirements.txt
 ```
 
-Para iniciar pela interface gráfica:
+Para iniciar a interface gráfica:
 
 ```powershell
 python main_gui.py
 ```
 
-ou use:
+Também é possível utilizar:
 
 ```text
 INICIAR_CONFIGURADOR_TI.cmd
 ```
 
-> Algumas funções dependem de Windows real e algumas ações administrativas solicitam elevação apenas quando necessário.
+> Algumas funcionalidades dependem de recursos nativos do Windows. Determinadas ações administrativas podem solicitar elevação de privilégio apenas quando necessário.
 
-## Testes e QA
+## 🧪 Testes e QA
 
-A candidata-base REBRAND GLOBAL R1 registrou:
+A regressão automatizada atual registra:
 
 - **34 suítes**
 - **844 testes**
@@ -124,7 +131,7 @@ A candidata-base REBRAND GLOBAL R1 registrou:
 - **0 FAIL**
 - `compileall`: PASS
 - scanner de branding: PASS
-- harness portátil/Linux: `PASS_WITH_NATIVE_PENDING`
+- validações multiplataforma: PASS, com verificações nativas do Windows ainda pendentes
 
 Para executar a suíte incluída no repositório:
 
@@ -132,54 +139,76 @@ Para executar a suíte incluída no repositório:
 python -m unittest discover -s desenvolvimento/testes -p "test_*.py"
 ```
 
-A suíte possui testes que dependem de PyQt6 e alguns gates condicionais a Windows. Consulte [`docs/TESTING.md`](docs/TESTING.md).
+Alguns testes dependem de PyQt6 e determinados cenários possuem validações condicionais ao ambiente Windows.
 
-## Build
+Mais detalhes estão disponíveis em [`docs/TESTING.md`](docs/TESTING.md).
 
-O pipeline oficial usa PyInstaller. Para instalar dependências de desenvolvimento:
+## 📦 Build e distribuição
+
+O pipeline do projeto utiliza **PyInstaller**.
+
+Para instalar as dependências de desenvolvimento:
 
 ```powershell
 python -m pip install -r requirements-dev.txt
 ```
 
-No Windows, o build portátil pode ser iniciado por:
+No Windows, o processo de geração da versão portátil pode ser iniciado por:
 
 ```text
 CRIAR_EXE_E_PENDRIVE_TI_v5_0.bat
 ```
 
-O pipeline preserva saídas anteriores, gera manifesto/checksums e rejeita uma distribuição que viole os gates de higiene definidos pelo projeto.
+O pipeline preserva saídas anteriores, gera manifestos e checksums e realiza validações antes da distribuição.
 
-## Segurança e limites
+## 🔐 Segurança e limites
 
-Este projeto **não é um RMM de produção** e a Central/Backend atuais são referências locais de QA. O desenho atual evita shell remoto livre, upload/execução arbitrária e remediação automática sem confirmação.
+O projeto ainda **não deve ser interpretado como uma solução RMM pronta para produção**.
 
-O repositório não contém chaves privadas, credenciais reais ou estado persistente de usuário. Consulte [`docs/SECURITY.md`](docs/SECURITY.md).
+A Central Web e o backend atualmente funcionam como componentes de referência e QA.
 
-## Screenshots
+O desenho atual evita:
 
-As capturas antigas foram removidas durante o rebranding para evitar apresentar telas históricas como se fossem da versão atual. A pasta [`assets/screenshots/`](assets/screenshots/) está reservada para novas capturas da candidata rebatizada.
+- shell remoto livre;
+- upload e execução remota arbitrária;
+- remediação automática sem confirmação;
+- concessão silenciosa de privilégios.
 
-## Roadmap
+O repositório público não contém chaves privadas, credenciais reais ou estado persistente de usuários.
 
-Os próximos gates incluem:
+Mais informações estão disponíveis em [`docs/SECURITY.md`](docs/SECURITY.md).
+
+## 📷 Screenshots
+
+As capturas anteriores foram removidas para que o repositório apresente somente a interface correspondente à versão atual do projeto.
+
+As novas capturas serão adicionadas em:
+
+[`assets/screenshots/`](assets/screenshots/)
+
+## 🗺️ Roadmap
+
+Os principais passos antes de uma versão considerada estável incluem:
 
 - validação completa em Windows real;
-- build e smoke de `ConfiguradorTI.exe` e `ConfiguradorTIAgent.exe`;
-- validação de serviço Windows / LocalService / ACL / DPAPI;
-- validação da Central em navegador real;
-- captura de screenshots atuais;
+- build e smoke test de `ConfiguradorTI.exe` e `ConfiguradorTIAgent.exe`;
+- validação do serviço Windows;
+- validações de LocalService, ACL e DPAPI;
+- validação da Central Web em navegador real;
+- inclusão de screenshots atualizados;
 - consolidação da documentação de release.
 
-Veja [`docs/ROADMAP.md`](docs/ROADMAP.md).
+Mais detalhes estão disponíveis em [`docs/ROADMAP.md`](docs/ROADMAP.md).
 
-## Autor
+## 👤 Autor
 
 **Juan Pablo Oliveira de Azevedo**
 
-- LinkedIn: https://www.linkedin.com/in/juanpabloazevedo
-- GitHub: https://github.com/juanpablooliveradeazevedo
+- [LinkedIn](https://www.linkedin.com/in/juanpabloazevedo)
+- [GitHub](https://github.com/juanpablooliveradeazevedo)
 
 ---
 
-Projeto pessoal em desenvolvimento. O conteúdo deste repositório representa uma versão de portfólio e QA, não uma declaração de prontidão para produção.
+Projeto pessoal em desenvolvimento.
+
+Este repositório representa uma versão pública de **portfólio e QA** e não uma declaração de prontidão para produção.
